@@ -12,9 +12,18 @@
    and Patrick Hand for hand‑written labels. */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&family=Patrick+Hand&display=swap');
 
+/*
+ * Ensure the game completely covers its container when embedded. Setting
+ * both width and height to 100% makes the dark background fill the
+ * <iframe> so nothing from the parent page shows through. Flexbox is
+ * used to center the game container and prevent any scroll bars. A high
+ * z‑index keeps the game on top of any underlying elements if the file
+ * is accidentally injected into another page.
+ */
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
   height: 100%;
   font-family: 'Inter', sans-serif;
   /* Use a repeating noise texture over a very dark base colour. The
@@ -27,6 +36,8 @@ html, body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  z-index: 9999;
 }
 
 /* Container for the scoreboard and the game canvas */
