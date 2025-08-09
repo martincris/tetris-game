@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+  Tetris game page
+
+  This standalone HTML file bundles together a canvas‑based Tetris game with
+  styles inspired by Building Thingz’s website. The dark, textured
+  background and colourful gradient blocks evoke the playfulness of the
+  reference design. To embed this into your Framer site, host this file
+  somewhere accessible and use a Framer Code component or an <iframe>
+  pointing at it.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <div class="score-panel">
+      <h1 class="title">TETRIS</h1>
+      <div class="score">Score: <span id="score">0</span></div>
+      <div class="lines">Lines: <span id="lines">0</span></div>
+      <button id="start-btn">START GAME</button>
+    </div>
+    <canvas id="tetris" width="300" height="600"></canvas>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

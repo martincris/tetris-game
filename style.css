@@ -1,0 +1,145 @@
+/*
+ * Tetris Game styling inspired by Building Thingz (btz.framer.website)
+ *
+ * The design takes cues from the original site – dark, textured backgrounds,
+ * hand‑written fonts and bold headings in bright colours. Bright gradient blocks
+ * with a subtle 3D effect recall the Tetris shapes used throughout the
+ * reference site. Feel free to tweak colours or sizes to better match your
+ * implementation.
+ */
+
+/* Import Google fonts. Bebas Neue for big headings, Inter for interface text
+   and Patrick Hand for hand‑written labels. */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&family=Patrick+Hand&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  /* Use a repeating noise texture over a very dark base colour. The
+     texture file is bundled with the project and repeats seamlessly. */
+  background-color: #0d0d0d;
+  background-image: url('noise.png');
+  background-repeat: repeat;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Container for the scoreboard and the game canvas */
+.game-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Scoreboard / controls panel */
+.score-panel {
+  width: 280px;
+  padding: 1rem 1.5rem;
+  background-color: rgba(13, 13, 13, 0.7);
+  border: 2px solid #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* Title heading */
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Score and lines display */
+.score-panel .score,
+.score-panel .lines {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Hand‑written style label for the numeric values */
+.score-panel span {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  color: #f7f7f7;
+}
+
+/* Start button styled similarly to the "LET'S BUILD" button on the reference site */
+#start-btn {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  color: #000;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.1s ease;
+}
+
+/* Slight press effect */
+#start-btn:active {
+  transform: scale(0.97);
+}
+
+/* Multicoloured bar underneath the button, reminiscent of the primary site */
+#start-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-image:
+    linear-gradient(90deg,
+      #e63946 0%,
+      #f4a261 20%,
+      #e9c46a 40%,
+      #2a9d8f 60%,
+      #457b9d 80%,
+      #a29bfe 100%
+    );
+  z-index: -1;
+}
+
+canvas {
+  border: 2px solid #1f1f1f;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Game over overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  z-index: 10;
+  visibility: hidden;
+}
+
+.overlay.show {
+  visibility: visible;
+}
