@@ -36,8 +36,14 @@ html, body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  position: relative;
-  z-index: 9999;
+  /* Ensure the game overlays anything from the host page when embedded via iframe.
+     Use a very high z-index and fixed positioning so the dark background
+     completely covers any underlying content (e.g. headings from the parent site).
+     Without this, large text from the host page may bleed through. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483647;
 }
 
 /* Container for the scoreboard and the game canvas */
