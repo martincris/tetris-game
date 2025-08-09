@@ -19,12 +19,16 @@
 <body>
   <div class="game-container">
     <div class="score-panel">
-      <h1 class="title">TETRIS</h1>
+      <!-- Removed the large title to keep the interface clean.
+           Only score, lines and start button remain. -->
       <div class="score">Score: <span id="score">0</span></div>
       <div class="lines">Lines: <span id="lines">0</span></div>
       <button id="start-btn">START GAME</button>
     </div>
+    <!-- Game canvas -->
     <canvas id="tetris" width="300" height="600"></canvas>
+    <!-- Instructions to help users understand how to play. -->
+    <p class="instructions">Use the arrow keys or WASD to move and rotate pieces. Press the space bar to drop quickly.</p>
   </div>
   <script src="script.js"></script>
 </body>
