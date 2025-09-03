@@ -532,3 +532,57 @@ document.body.appendChild(overlayElement);
 
 // Initialise the game board upon load
 resetGame();
+
+// On‑screen button controls for mobile devices. These listeners mirror the
+// keyboard controls, enabling play on touchscreens. Only attach handlers
+// if the corresponding elements exist in the DOM.
+const mobileLeftBtn = document.getElementById('mobile-left');
+const mobileRightBtn = document.getElementById('mobile-right');
+const mobileRotateBtn = document.getElementById('mobile-rotate');
+const mobileDownBtn = document.getElementById('mobile-down');
+const mobileDropBtn = document.getElementById('mobile-drop');
+
+if (mobileLeftBtn) {
+  mobileLeftBtn.addEventListener('click', () => {
+    if (!isGameOver) {
+      move(-1);
+      draw();
+    }
+  });
+}
+
+if (mobileRightBtn) {
+  mobileRightBtn.addEventListener('click', () => {
+    if (!isGameOver) {
+      move(1);
+      draw();
+    }
+  });
+}
+
+if (mobileRotateBtn) {
+  mobileRotateBtn.addEventListener('click', () => {
+    if (!isGameOver) {
+      rotate();
+      draw();
+    }
+  });
+}
+
+if (mobileDownBtn) {
+  mobileDownBtn.addEventListener('click', () => {
+    if (!isGameOver) {
+      softDrop();
+      draw();
+    }
+  });
+}
+
+if (mobileDropBtn) {
+  mobileDropBtn.addEventListener('click', () => {
+    if (!isGameOver) {
+      hardDrop();
+      draw();
+    }
+  });
+}

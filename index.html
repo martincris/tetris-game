@@ -16,20 +16,35 @@
   <title>Tetris Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="margin: 0; width: 100%; height: 100%; position: relative; z-index: 9999;">
+<body>
+  <!-- The container wraps the scoreboard, game canvas and instructions.
+       The title has been removed to focus on gameplay. Instructions are
+       provided below the canvas to help users understand the controls. -->
   <div class="game-container">
     <div class="score-panel">
-      <!-- Removed the large title to keep the interface clean.
-           Only score, lines and start button remain. -->
+      <!-- Removed large title to streamline the interface -->
       <div class="score">Score: <span id="score">0</span></div>
       <div class="lines">Lines: <span id="lines">0</span></div>
       <button id="start-btn">START GAME</button>
     </div>
     <!-- Game canvas -->
     <canvas id="tetris" width="300" height="600"></canvas>
-    <!-- Instructions to help users understand how to play. -->
-    <p class="instructions">Use the arrow keys or WASD to move and rotate pieces. Press the space bar to drop quickly.</p>
+    <!-- Instructions for players -->
+    <p class="instructions">Use the arrow keys or WASD to move and rotate pieces. Press the space&nbsp;bar to drop quickly.</p>
+    <!-- On‑screen controls for mobile devices. These controls are hidden on larger
+         screens and become visible on small viewports via CSS. Buttons are
+         labelled for accessibility and call the same functions as keyboard
+         controls. -->
+    <div class="mobile-controls">
+      <button id="mobile-left" aria-label="Move left">◀</button>
+      <button id="mobile-rotate" aria-label="Rotate">⤾</button>
+      <button id="mobile-right" aria-label="Move right">▶</button>
+      <button id="mobile-down" aria-label="Soft drop">▼</button>
+      <button id="mobile-drop" aria-label="Hard drop">⏬</button>
+    </div>
   </div>
   <script src="script.js"></script>
+  <!-- Hidden game over overlay that appears when the game ends -->
+  <div id="game-over" class="overlay"></div>
 </body>
 </html>
